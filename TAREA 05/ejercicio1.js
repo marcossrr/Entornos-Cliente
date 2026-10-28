@@ -1,15 +1,21 @@
-let guardar = document.getElementsByTagName('button');
+let form = document.getElementsByTagName('form');
+let getData = document.getElementsByClassName('get_data');
 
-guardar[0].addEventListener('submit', function(){
+form[0].addEventListener('submit', function(event){
     event.preventDefault();
 
-    let name = document.getElementByClassName('name').value;
-    let first_surname = document.getElementByClassName('first_surname').value;
+    let name = document.getElementsByClassName('name').value;
+    let first_surname = document.getElementsByClassName('first_surname').value;
     let second_surname = document.getElementsByClassName('second_surname').value;
     let dni = document.getElementsByClassName('dni').value;
 
-    window.localStorage.setItem('name', JSON.stringify(name));
-    window.localStorage.setItem('first_surname', JSON.stringify(first_surname));
-    window.localStorage.setItem('second_surname', JSON.stringify(second_surname));
-    window.localStorage.setItem('dni', JSON.stringify(dni));
+    let user = {
+        name: 'name',
+        firstSurname: 'first_surname', 
+        secondSurname: 'second_surname'
+    }
+
+    localStorage.setItem('dni', JSON.stringify(user));
 })
+
+
